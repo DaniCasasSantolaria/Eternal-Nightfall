@@ -21,12 +21,18 @@ public class Sensor_Bandit : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        m_ColCount++;
+        if (!other.CompareTag("Confiner"))
+        {
+            m_ColCount++;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        m_ColCount--;
+        if (!other.CompareTag("Confiner"))
+        {
+            m_ColCount--;
+        }
     }
 
     void Update()
